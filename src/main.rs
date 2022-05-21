@@ -18,7 +18,6 @@ fn print_board(board: &[u32]) {
         };
         println!("{} | {} | {}", first, second, third);
     }
-    println!("{:?}", board);
 }
 
 /// return user input
@@ -93,10 +92,12 @@ fn main() {
     let mut is_running = true;
     let mut moves_made: u32 = 0;
 
+    println!("--------TIC-TAC-TOE IN RUST--------");
+
     // main game loop
     while is_running && moves_made < 9 {
         print_board(&board);
-        println!("current player is: {}", player);
+        println!("current player is: {}", if player == 1 { "X" } else { "O" });
 
         current_input = take_input();
         make_move(&mut board, current_input, player);
